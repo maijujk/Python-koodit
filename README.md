@@ -13,4 +13,4 @@ pyöristetty-numero\
 ristikkopeli\
 tiedostoon-kirjoitus\
 tulostuksen-muotoilu\
-valuuttamuunnin\
+valuuttamuunnin
