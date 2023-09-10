@@ -10,7 +10,8 @@ painoindeksilaskuri\
 päivänseisaus\
 poikkeus\
 pyöristetty-numero\
-ristikkopeli\
+ristinollapeli\
+shakkilauta\
 tiedostoon-kirjoitus\
 tulostuksen-muotoilu\
 valuuttamuunnin
