@@ -12,6 +12,7 @@ poikkeus\
 pyöristetty-numero\
 ristinollapeli\
 shakkilauta\
+sudoku\
 tiedostoon-kirjoitus\
 tulostuksen-muotoilu\
 valuuttamuunnin
