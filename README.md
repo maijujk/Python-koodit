@@ -4,6 +4,7 @@ astronominen-kuva\
 kansiot\
 kirjaudu\
 kokonaisluku\
+kurssin_tulokset\
 laskin\
 ostoslista\
 painoindeksilaskuri\

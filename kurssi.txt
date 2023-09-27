@@ -1,0 +1,2 @@
+nimi: Ohjelmoinnin peruskurssi
+laajuus opintopisteina: 5
