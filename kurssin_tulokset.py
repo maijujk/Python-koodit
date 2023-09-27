@@ -69,11 +69,10 @@ with open(tulos1, "w") as tiedosto:
     ekarivi = (f"{kurssinnimi}, {kurssinlaajuus} opintopistettä\n")
     tiedosto.write(ekarivi)
     tiedosto.write("="*(len(ekarivi)-1)+"\n")
-    tiedosto.write(f"nimi                          teht_lkm  teht_pist koe_pist  yht_pist  arvosana\n")
+    tiedosto.write(f"nimi                         teht_lkm  teht_pist koe_pist  yht_pist  arvosana\n")
     print(ekarivi)
     print("="*(len(ekarivi)-1)+"")
-
-    print(f"nimi                          teht_lkm  teht_pist koe_pist  yht_pist  arvosana")
+    print(f"nimi                         teht_lkm  teht_pist koe_pist  yht_pist  arvosana")
 
     for opnro, nimi in opiskelijat.items():
         tehtavia = tehtavat[opnro]
@@ -81,14 +80,13 @@ with open(tulos1, "w") as tiedosto:
         koe_pist = kokeet[opnro]
         yht_pist = teht_pist + koe_pist
         tiedosto.write(f"{nimi:30}{tehtavia:<10}{teht_pist:<10}{koe_pist:<10}{yht_pist:<10}{arvosana(yht_pist):<10}\n")
-    
         print(f"{nimi:30}{tehtavia:<10}{teht_pist:<10}{koe_pist:<10}{yht_pist:<10}{arvosana(yht_pist):<10}")
     print()
+    
 with open(tulos2, "w") as tiedosto:
     for opnro, nimi in opiskelijat.items():
         yht = kokeet[opnro] + pisteiksi(tehtavat[opnro])
         rivi = f"{opnro};{nimi};{arvosana(yht)}"
-        # print(f"{opnro};{nimi};{arvosana(yht)}")
         tiedosto.write(rivi+"\n")
 print()
 print(f"Tulokset talletettu tiedostoihin {tulos1} ja {tulos2}")
