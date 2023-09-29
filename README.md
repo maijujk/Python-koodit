@@ -1,6 +1,6 @@
 ### `Python koodeja:`
 alkuaineet\
-astronominen-kuva\
+astronominen_kuva\
 kansiot\
 kirjaudu\
 kokonaisluku\
@@ -11,10 +11,10 @@ ostoslista\
 painoindeksilaskuri\
 päivänseisaus\
 poikkeus\
-pyöristetty-numero\
+pyöristetty_numero\
 ristinollapeli\
 shakkilauta\
 sudoku\
-tiedostoon-kirjoitus\
-tulostuksen-muotoilu\
+tiedostoon_kirjoitus\
+tulostuksen_muotoilu\
 valuuttamuunnin
