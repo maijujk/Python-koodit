@@ -6,6 +6,7 @@ kirjaudu\
 kokonaisluku\
 kurssin_tulokset\
 laskin\
+muistava_sanakirja\
 ostoslista\
 painoindeksilaskuri\
 päivänseisaus\
