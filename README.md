@@ -6,7 +6,7 @@ kirjaudu\
 kokonaisluku\
 kurssin_tulokset\
 laskin\
-maksukortti.py\
+maksukortti_ja maksupaate.py\
 muistava_sanakirja\
 ostoslista\
 painoindeksilaskuri\
