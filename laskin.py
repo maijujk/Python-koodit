@@ -1,104 +1,77 @@
-
 # -----------------------------------------------------------------------------
-
-# Ohjelmoi tkInter-kirjastoa hyödyntäen graafinen laskin, 
+# tkInter-kirjastoa hyödyntäen graafinen laskin, 
 # jossa perustoiminnot: + - * / = 
-# ja syöttökentän tyhjennys.
-from tkinter import *
+# ja syöttökentän tyhjennys
 
-x = ""
+import tkinter as tk
 
-def paina(numero):
-    global x
-    x = x + str(numero)
-    julkaisu.set(x)
+# Luo pääikkuna
+root = tk.Tk()
+root.title("Laskin")
+root.geometry("325x380")  # Suurenna ikkunaa
+root.resizable(0, 0)
+root.configure(bg='grey')  # Ikkunan taustaväri
+# Globaalit muuttujat
+expression = ""
 
-def yhteensa():
-    global x
-    yhteensa = str(eval(x))
-    julkaisu.set(yhteensa)
- 
-def tyhjenna():
-    global x
-    x = ""
-    julkaisu.set("")
-    
-ikkuna = Tk()
-ikkuna.configure(background="light grey")
-ikkuna.title("Laskin")
-ikkuna.geometry("265x280")
+# Päivitä näyttö
+def update_display():
+    display_var.set(expression)
 
-julkaisu = StringVar()
-kentta = Entry(ikkuna, textvariable=julkaisu)
-kentta.grid(columnspan=3, ipadx=20)
- 
-painike7 = Button(ikkuna, text="7", fg="black",
-                    command=lambda: paina(7), height=3, width=8)
-painike7.grid(row=1, column=0)
- 
-painike8 = Button(ikkuna, text="8", fg="black",
-                command=lambda: paina(8), height=3, width=8)
-painike8.grid(row=1, column=1)
- 
-painike9 = Button(ikkuna, text="9", fg="black",
-                    command=lambda: paina(9), height=3, width=8)
-painike9.grid(row=1, column=2)
- 
-painike4 = Button(ikkuna, text="4", fg="black",
-                    command=lambda: paina(4), height=3, width=8)
-painike4.grid(row=2, column=0)
- 
-painike5 = Button(ikkuna, text="5", fg="black",
-                command=lambda: paina(5), height=3, width=8)
-painike5.grid(row=2, column=1)
- 
-painike6 = Button(ikkuna, text="6", fg="black",
-                command=lambda: paina(6), height=3, width=8)
-painike6.grid(row=2, column=2)
- 
-painike1 = Button(ikkuna, text="1", fg="black",
-                    command=lambda: paina(1), height=3, width=8)
-painike1.grid(row=3, column=0)
- 
-painike2 = Button(ikkuna, text="2", fg="black",
-                command=lambda: paina(2), height=3, width=8)
-painike2.grid(row=3, column=1)
- 
-painike3 = Button(ikkuna, text="3", fg="black",
-                command=lambda: paina(3), height=3, width=8)
-painike3.grid(row=3, column=2)
- 
-painike0 = Button(ikkuna, text="0", fg="black",
-                    command=lambda: paina(0), height=3, width=8)
-painike0.grid(row=4, column=1)
- 
-jako = Button(ikkuna, text="/", fg="black",
-               command=lambda: paina("/"), height=3, width=8)
-jako.grid(row=0, column=3)
- 
-kerto = Button(ikkuna, text="*", fg="black",
-                command=lambda: paina("*"), height=3, width=8)
-kerto.grid(row=1, column=3)
- 
-miinus = Button(ikkuna, text="-", fg="black",
-                command=lambda: paina("-"), height=3, width=8)
-miinus.grid(row=2, column=3)
- 
-plus = Button(ikkuna, text="+", fg="black",
-                command=lambda: paina("+"), height=3, width=8)
-plus.grid(row=3, column=3)
- 
-yhteensa = Button(ikkuna, text="=", fg="black",
-                command=yhteensa, height=3, width=8)
-yhteensa.grid(row=4, column=3)
- 
-tyhjenna = Button(ikkuna, text="C", fg="black",
-                command=tyhjenna, height=3, width=8)
-tyhjenna.grid(row=4, column=0)
- 
-Desimaali= Button(ikkuna, text=",", fg="black",
-                command=lambda: paina(","), height=3, width=8)
-Desimaali.grid(row=4, column=2)
+# Lisää merkki
+def add_to_expression(value):
+    global expression
+    expression += str(value)
+    update_display()
 
+# Laske tulos
+def evaluate_expression():
+    global expression
+    try:
+        result = str(eval(expression))
+        expression = result
+    except Exception as e:
+        expression = "Error"
+    update_display()
 
-ikkuna.mainloop()
+# Tyhjennä näyttö
+def clear_expression():
+    global expression
+    expression = ""
+    update_display()
+
+# Käyttöliittymän luominen
+display_var = tk.StringVar()
+
+# Näyttö
+display = tk.Entry(root, textvariable=display_var, font=('Arial', 24), insertwidth=2, width=14, borderwidth=8, bg='grey', fg='black')
+display.grid(row=0, column=0, columnspan=3, padx=10, pady=30)  # Lisää padding
+tk.Button(root, text='C', bd=3, padx=30, pady=10, font=('Arial', 14), command=clear_expression, bg='grey', fg='black').grid(row=0, column=3, padx=5, pady=5)
+
+# # Painikkeet
+buttons = [
+    '7', '8', '9', '/',
+    '4', '5', '6', '*',
+    '1', '2', '3', '-',
+    ',', '0', '=', '+'
+]
+
+row = 1
+col = 0
+
+for button in buttons:
+    action = lambda x=button: add_to_expression(x) if x != '=' else evaluate_expression()
+    tk.Button(root, text=button, bd=3, padx=27, pady=7, font=('Arial', 14), command=action, bg='grey', fg='black').grid(row=row, column=col, sticky="nsew")  # Poista padding ja lisää sticky
+    col += 1
+    if col > 3:
+        col = 0
+        row += 1
+
+# # Lisää ruudukon laajennus
+for i in range(4):
+    root.grid_columnconfigure(i, weight=1)
+for i in range(row+1):
+    root.grid_rowconfigure(i, weight=1)
+
+# Käynnistä pääsilmukka
+root.mainloop()
