@@ -18,7 +18,7 @@ expression = ""
 def update_display():
     global expression
     if len(expression) > 14:
-        expression = expression[:14]  # Rajaa näytettävät merkit 12:een ensimmäiseen
+        expression = expression[:14]  # Rajaa näytettävät merkit 14:een ensimmäiseen
     display_var.set(expression)
 
 # Lisää merkki
@@ -38,7 +38,7 @@ def add_to_expression(value):
     update_display()
 
 # Laske tulos
-def evaluate_expression():#!!!!!!
+def evaluate_expression():
     global expression
     try:
         result = eval(expression)

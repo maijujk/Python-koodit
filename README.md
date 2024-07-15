@@ -1,6 +1,7 @@
 ### `Python koodeja:`
 alkuaineet\
 astronominen_kuva\
+Binäärimuunnin\
 kansiot\
 kirjaudu\
 kokonaisluku\
