@@ -5,7 +5,7 @@ root = tk.Tk()
 root.title("Binäärimuunnin")
 root.geometry("325x380")  # Suurenna ikkunaa
 root.resizable(0, 0)
-root.configure(bg='grey')  # Ikkunan taustaväri
+root.configure(bg='dim grey')  # Ikkunan taustaväri
 
 # Globaalit muuttujat
 expression = ""
@@ -62,26 +62,26 @@ def delete_last():
     
 # Funktio, joka vaihtaa napin väriä, kun hiiri on napin päällä
 def on_enter(event, btn):
-    btn['bg'] = 'grey'
+    btn['bg'] = 'dim grey'
 
 # Funktio, joka palauttaa napin värin, kun hiiri poistuu napin päältä
 def on_leave(event, btn):
-    btn['bg'] = 'dim grey'
+    btn['bg'] = 'grey'
 
 # Käyttöliittymän luominen
 display_var = tk.StringVar()
 
 # Näyttö
-display = tk.Label(root, textvariable=display_var, font=('Arial', 20), width=20, bg='grey', fg='black')
-display.grid(row=0, column=0, columnspan=4, padx=10, pady=30)
+display = tk.Label(root, textvariable=display_var, font=('Arial', 30), width=20, bg='dim grey', fg='black')
+display.grid(row=0, column=0, columnspan=4, padx=10, pady=10)
 
 # Painikkeet
 buttons = [
-    '', 'C', 'x', 
+    'x', 'C', '=', 
     '7', '8', '9', 
     '4', '5', '6', 
     '1', '2', '3', 
-    '', '0', '=', 
+    '', '0', '', 
 ]
 
 row = 1
@@ -91,12 +91,12 @@ for button in buttons:
     action = lambda x=button: add_to_expression(x) if x != '=' else decimal_to_binary()   
     if button == "C":
         # C-painike
-        btn = tk.Button(root, text='C', bd=2, padx=40, pady=10, font=('Arial', 14), command=clear_expression, bg='dim grey', fg='black', activebackground='dim grey')
+        btn = tk.Button(root, text='C', bd=2, padx=40, pady=10, font=('Arial', 14), command=clear_expression, bg='grey', fg='black', activebackground='dim grey')
     elif button == "x":
         # x-painike
-        btn = tk.Button(root, text='x', bd=2, padx=40, pady=10, font=('Arial', 14), command=delete_last, bg='dim grey', fg='black', activebackground='dim grey')
+        btn = tk.Button(root, text='x', bd=2, padx=40, pady=10, font=('Arial', 14), command=delete_last, bg='grey', fg='black', activebackground='dim grey')
     else:
-        btn = tk.Button(root, text=button, bd=2, padx=40, pady=10, font=('Arial', 14), command=action, bg='dim grey', fg='black', activebackground='dim grey')
+        btn = tk.Button(root, text=button, bd=2, padx=40, pady=10, font=('Arial', 14), command=action, bg='grey', fg='black', activebackground='dim grey')
     btn.grid(row=row, column=col, sticky="nsew")  
 
     # Bindaa Enter- ja Leave-tapahtumat napille
