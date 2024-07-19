@@ -27,8 +27,8 @@ def add_to_expression(value):
     if value == "" or value == "x":
         return
     # Tarkistetaan, että expression ei sisällä vielä operaattorimerkkiä
-    if any(op in expression for op in "+-*/%."):
-        if value.isdigit() or (value in "+-*/%." and len(expression) == 1):
+    if any(op in expression for op in "+-*/%"):
+        if value.isdigit() or (value in "+-*/%" and len(expression) == 1):
             # Sallitaan toinen merkki, jos ensimmäinen on numero ja toinen on operaattori
             expression += str(value)
     elif not expression and value in "+-*/%.":
