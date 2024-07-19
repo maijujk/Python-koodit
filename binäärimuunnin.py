@@ -72,8 +72,8 @@ def on_leave(event, btn):
 display_var = tk.StringVar()
 
 # Näyttö
-display = tk.Label(root, textvariable=display_var, font=('Arial', 30), width=20, bg='dim grey', fg='black')
-display.grid(row=0, column=0, columnspan=4, padx=10, pady=10)
+display = tk.Label(root, textvariable=display_var, font=('Arial', 24), width=20, bg='dim grey', fg='black')
+display.grid(row=0, column=0, columnspan=4, padx=10, pady=20)
 
 # Painikkeet
 buttons = [

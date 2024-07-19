@@ -79,7 +79,7 @@ display_var = tk.StringVar()
 
 # # Näyttö
 display = tk.Label(root, textvariable=display_var, font=('Arial', 24), width=20, bg='dim grey', fg='black')
-display.grid(row=0, column=0, columnspan=4, padx=10, pady=20)
+display.grid(row=0, column=0, columnspan=4, padx=10, pady=18)
 
 # # Painikkeet
 buttons = [
